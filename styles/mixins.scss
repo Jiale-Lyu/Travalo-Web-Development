@@ -1,0 +1,27 @@
+@mixin text-position($fontsize, $left){
+    position: absolute;
+    color: white;
+    font-weight: bolder;
+    width: 230px;
+    text-align: center;
+    z-index: 100;
+    font-size: $fontsize;
+    left: $left;
+}
+
+@mixin nav($text-color, $hover-color){
+    width: 80px;
+    line-height: 20px;
+    text-align: center;
+    a {
+        color: $text-color;
+        text-decoration: none;
+        &:hover {
+            color: $hover-color;
+        }
+    }
+}
+
+@function margin-top($n){
+    @return $margin * $n;
+}

@@ -1,0 +1,397 @@
+/* CSS styling */
+p {
+    margin: 0;
+}
+
+ul {
+    @extend p;
+    padding: 0;
+}
+
+/* apply to the whole page */
+.main {
+    padding: 50px;
+    @extend p;
+
+    /* The top navigation part */
+    .top {
+        width: $full;
+        height: 20px + 7px;
+        display: flex;
+        justify-content: space-between;
+        position: sticky;
+        top: -1px;
+        background-color: white;
+        z-index: 100;
+        .nav {
+            width: 1000px/2;
+            /* stay at center */
+            margin: 0 auto;
+            .navl {
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                .navi {                
+                    @include nav(#5A7B8C, #2A546B);
+                }
+            }
+        }
+    }
+
+    /* button */
+    .connect {
+        width: 80px;
+        height: 27px;
+        background-color: $btn-color;
+        color: white;
+        border-radius: 20px;
+        border: 0;
+        cursor: pointer;
+    }
+
+    div ul li {
+        list-style: none;
+        display: inline;
+        padding: 13px, 35px;
+    }
+
+    /* The search section */
+    
+    .graybox{
+        position:relative;
+        height: 340px;
+        .pic {
+            width: $full;
+            height: 340px;
+            background-size: $full $full;
+            margin-top: 15px;
+            // display: grid;
+            align-items: center;
+            // justify-content: center;
+            @extend .recommand;
+            position: absolute;
+        }
+        .gray {
+            background-color: rgba(0, 0, 0, 0.192);
+            width: $full;
+            height: 340px;
+            background-size: $full $full;
+            margin-top: 15px;
+            position: absolute;
+            align-items: center;
+            @extend .recommand;
+            border-radius: 6px;
+            .word {
+                text-align: center;
+                justify-content: center;
+                width: 330px;
+                color: white;
+                margin: 0 auto;
+
+                .travel_title {
+                    font-size: x-large;
+                    font-family: sans-serif;
+                }
+            }
+        }
+    }
+
+    /* Destination Searching form */
+    .form {
+        background-color: white;
+        opacity: 80%;
+        width: 650px;
+        height: 50px;
+        display: grid;
+        grid-template-columns: 3fr 2fr 2fr 3fr;
+        grid-template-areas:
+            "where checkin checkout submit"
+            "text1 date1 date2 submit";
+        border-radius: 8px;
+        font-size: smaller;
+        text-align: center;
+        align-items: center;
+        justify-items: center;
+        margin-top: -70px;
+
+        .where {
+            grid-area: where;
+        }
+
+        .checkin {
+            grid-area: checkin;
+        }
+
+        .checkout {
+            grid-area: checkout;
+        }
+        .magnifier{
+            display: flex;
+            img{
+                width: 17px;
+                height: 14px;
+            }
+            .text1 {
+                grid-area: text1;
+                border: none;
+                width: 130px;
+            }
+        }
+        .date1 {
+            grid-area: date1;
+            border: none;
+        }
+
+        .date2 {
+            grid-area: date2;
+            border: none;
+        }
+
+        .submit {
+            width: 120px;
+            height: 40px;
+            background-color: $btn-color;
+            color: white;
+            border-radius: $radius;
+            border: 0;
+            margin: 3px 0 0 70px;
+            grid-area: submit;
+            cursor: pointer;
+        }
+
+    }
+
+    /* Four icons */
+    .icons {
+        display: flex;
+        flex-direction: row;
+        margin-top: $full-px;
+        justify-content: space-between;
+
+        .icon {
+            width: 200px;
+            height: 150px;
+            box-shadow: 10px 10px 50px 1px #e8f0f3;
+            font-size: small;
+            img {
+                width: 35%;
+            }
+        }
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 50px;
+        margin-top: margin-top(12);
+    }
+
+    /* Blogs pictures */
+    .blogpics {
+        display: grid;
+        grid-template-areas: "left rtop""left rdown";
+        column-gap: 20px;
+        justify-content: center;
+        align-items: center;
+        row-gap: 15px;
+        margin-bottom: $full-px;
+        position: relative;
+
+        .left {
+            grid-area: left;
+            height: 300px;
+        }
+        .left-text{
+            @include text-position(x-large, 170px);
+        }
+        .rtop {
+            grid-area: rtop;
+            height: 140px;
+        }
+        .rtop-text{
+            top: 50px;
+            @include text-position(revert, 630px);
+        }
+        .rdown {
+            grid-area: rdown;
+            height: 140px;
+        }
+        .rdown-text{
+            top: 210px;
+            @include text-position(bolder, 630px)
+        }
+    }
+    
+    /*Recommanded Destination navigate bar*/
+    .recommand {
+        display: grid;
+        justify-content: center;
+
+        .link {
+            width: 780px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            justify-items: center;
+            border-bottom-style: inset;
+            .underscore{
+                width: 190px;
+                border-bottom: 2px solid;
+                justify-content: center;
+                display: flex;
+            }
+            a {
+                text-decoration: none;
+                color: black;
+            }
+        }
+    }
+
+    /* Destination pictures */
+    .picture {
+        width: $full;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        align-items: center;
+        justify-items: center;
+        row-gap: 80px;
+        margin-top: 30px;
+    
+        .box {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            width: 80%;
+            grid-template-areas:
+                "box-img box-img"
+                "box-city box-city"
+                "city-info city-info"
+                "box-funcs price"
+                "distance trip-time";
+            align-items: center;
+            row-gap: 8px;
+
+            .box-img {
+                width: $full;
+                grid-area: box-img;
+            }
+
+            .box-city {
+                grid-area: box-city;
+                font-size: larger;
+            }
+
+            .city-info {
+                grid-area: city-info;
+                font-size: smaller;
+            }
+
+            .box-funcs {
+                
+                display: flex;
+                grid-area: box-funcs;
+                img{
+                    width:25px;
+                    height: 25px;
+                    margin-right: 8px;
+                }
+            }
+
+            .price {
+                grid-area: price;
+                text-align: end;
+
+                &::after {
+                    content: '38,800';
+                }
+            }
+
+            .distance {
+                grid-area: distance;
+                font-size: small;
+            }
+
+            .trip-time {
+                grid-area: trip-time;
+                text-align: end;
+                font-size: small;
+            }
+
+        }
+
+    }
+
+    /* Happy customer section */
+    .happy {
+        display: flex;
+        flex-direction: row;
+        width: $full;
+        justify-content: space-between;
+        margin-top: 70px;
+        margin-bottom: 80px;
+        column-gap: 20px;
+
+        .ha1 {
+            display: flex;
+            flex-direction: row;
+            box-shadow: 10px 10px 50px 1px #e8f0f3;
+            p {
+                width: $full;
+                font-size: medium;
+            }
+
+            >img {
+                height: 50px;
+            }
+            .Shalini {
+                display: flex;
+                flex-direction: row;
+                column-gap: 10px;
+                margin-top: 20px;
+                align-items: center;
+                img {
+                    width: 65px;
+                }
+            }
+        }
+    }
+
+    footer {
+        width: $full;
+        background-color: #E1E8F8;
+        height: $full-px;
+        border-radius: $radius;
+        display: grid;
+        grid-template-columns: 4fr 5fr 1fr;
+        align-items: center;
+
+        p {
+            margin-left: 20px;
+        }
+
+        .navv {
+            height: 30px;
+
+            .navll {
+                display: flex;
+                height: 27px;
+                align-items: center;
+                padding: 0px;
+
+                .navii {
+                    @include nav(#3E4044, black);
+                }
+            }
+        }
+        .icons{
+            display: flex;
+            margin: 0;
+
+            /* Three icons for loop*/
+            @for $i from 1 through 3{
+                .i#{$i} {
+                    margin-right: 4px;
+                    height: 23px;
+                }
+            }
+        }
+    }
+}
